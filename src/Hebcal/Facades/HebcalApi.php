@@ -9,7 +9,7 @@ class HebcalApi extends Facade
 
     protected static function getFacadeAccessor()
     {
-        return 'Hebcal';
+        return 'HebcalApi';
     }
 
 }
