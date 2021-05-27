@@ -11,16 +11,16 @@
   ],
   "autoload": {
     "psr-4": {
-      "Ivy47\\Hebcal\\": "src/"
+      "Ivy47\\HebcalApi\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "Ivy47\\Hebcal\\HebcalServiceProvider"
+        "Ivy47\\HebcalApi\\Hebcal\\HebcalServiceProvider"
       ],
       "aliases": {
-        "HebcalApi": "Ivy47\\Hebcal\\Facades\\HebcalFacade"
+        "HebcalApi": "Ivy47\\HebcalApi\\Hebcal\\Facades\\HebcalFacade"
       }
     }
   },
