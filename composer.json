@@ -1,0 +1,32 @@
+{
+  "name": "ivy47/hebcal-api",
+  "description": "Simple API implementation of Hebcal.com Jewish holiday calendars for Laravel",
+  "minimum-stability": "dev",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ivan Yeromin",
+      "email": "ivanyeremin12@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Ivy47\\Hebcal\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Ivy47\\Hebcal\\HebcalServiceProvider"
+      ],
+      "aliases": {
+        "HebcalApi": "Ivy47\\Hebcal\\Facades\\HebcalFacade"
+      }
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^7.0.1",
+    "illuminate/support": "^8.0",
+    "illuminate/http": "^8.0"
+  }
+}
