@@ -33,6 +33,8 @@ class HebcalApi
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getHolidays($params) {
-        return new Response($this->getClient()->get($this->hebcalUri, $params));
+        return new Response($this->getClient()->get($this->hebcalUri, [
+            'query' => $params
+        ]));
     }
 }
