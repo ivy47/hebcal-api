@@ -20,7 +20,7 @@
         "Ivy47\\HebcalApi\\Hebcal\\HebcalServiceProvider"
       ],
       "aliases": {
-        "HebcalApi": "HebcalApi"
+        "HebcalApi": "Hebcal"
       }
     }
   },
