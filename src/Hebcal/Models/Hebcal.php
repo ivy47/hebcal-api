@@ -1,6 +1,6 @@
 <?php
 
-namespace Ivy47\Hebcal\Models;
+namespace Ivy47\HebcalApi\Hebcal\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ivy47\Hebcal\Facades;
+namespace Ivy47\HebcalApi\Hebcal\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ivy47\Hebcal;
+namespace Ivy47\HebcalApi\Hebcal;
 
 
 use GuzzleHttp\Client;
