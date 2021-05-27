@@ -20,13 +20,14 @@
         "Ivy47\\HebcalApi\\Hebcal\\HebcalServiceProvider"
       ],
       "aliases": {
-        "HebcalApi": "Ivy47\\HebcalApi\\Facades\\HebcalApi"
+        "HebcalApiYolo": "Ivy47\\HebcalApi\\Facades\\HebcalApiFacade"
       }
     }
   },
   "require": {
     "guzzlehttp/guzzle": "^7.0.1",
     "illuminate/support": "^8.0",
-    "illuminate/http": "^8.0"
+    "illuminate/http": "^8.0",
+    "illuminate/database": "^8.0"
   }
 }
