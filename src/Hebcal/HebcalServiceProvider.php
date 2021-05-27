@@ -15,11 +15,11 @@ class HebcalServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/hebcal.php', 'hebcal'
+            __DIR__ . '../config/hebcal.php', 'hebcal'
         );
 
         $this->publishes([
-            __DIR__ . '/config/hebcal.php' => config_path('hebcal.php')
+            __DIR__ . '../config/hebcal.php' => config_path('hebcal.php')
         ]);
     }
 
