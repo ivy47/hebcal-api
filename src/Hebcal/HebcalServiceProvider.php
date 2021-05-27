@@ -3,6 +3,7 @@
 
 namespace Ivy47\HebcalApi\Hebcal;
 
+use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
 
 class HebcalServiceProvider extends ServiceProvider
