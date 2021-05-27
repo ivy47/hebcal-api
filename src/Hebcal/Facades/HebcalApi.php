@@ -4,7 +4,7 @@ namespace Ivy47\HebcalApi\Hebcal\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class HebcalApiFacade extends Facade
+class HebcalApi extends Facade
 {
 
     protected static function getFacadeAccessor()

@@ -36,7 +36,7 @@ class HebcalServiceProvider extends ServiceProvider
                 'base_uri' => config('hebcal.base_uri')
             ]);
 
-            return new Hebcal($client, config('hebcal.hebcal_uri'));
+            return new HebcalApi($client, config('hebcal.hebcal_uri'));
         });
     }
 }
