@@ -31,12 +31,12 @@ class HebcalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(HebcalApi::class, function ($app) {
+        $this->app->singleton(Hebcal::class, function ($app) {
             $client = new Client([
                 'base_uri' => config('hebcal.base_uri')
             ]);
 
-            return new HebcalApi($client, config('hebcal.hebcal_uri'));
+            return new Hebcal($client, config('hebcal.hebcal_uri'));
         });
     }
 }

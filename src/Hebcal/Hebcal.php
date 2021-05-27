@@ -7,7 +7,7 @@ namespace Ivy47\HebcalApi\Hebcal;
 use GuzzleHttp\Client;
 use Illuminate\Http\Client\Response;
 
-class HebcalApi
+class Hebcal
 {
     private $client;
     private $hebcalUri;
