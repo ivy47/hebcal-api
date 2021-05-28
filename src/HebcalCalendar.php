@@ -88,4 +88,12 @@ class HebcalCalendar
     {
         return $this->resource;
     }
+
+    /**
+     * @return array|mixed
+     */
+    public function getDecoded(): array
+    {
+        return $this->decoded;
+    }
 }
