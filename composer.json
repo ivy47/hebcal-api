@@ -17,10 +17,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Ivy47\\HebcalApi\\Hebcal\\HebcalServiceProvider"
+        "Ivy47\\HebcalApi\\HebcalServiceProvider"
       ],
       "aliases": {
-        "HebcalApi": "Ivy47\\HebcalApi\\Facades\\HebcalFacade"
+        "HebcalApi": "Ivy47\\HebcalApi\\Facades\\HebcalApiFacade"
       }
     }
   },

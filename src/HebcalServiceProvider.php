@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Ivy47\HebcalApi\Hebcal;
+namespace Ivy47\HebcalApi;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\ServiceProvider;
@@ -31,12 +31,12 @@ class HebcalServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Hebcal::class, function ($app) {
+        $this->app->singleton(HebcalApi::class, function ($app) {
             $client = new Client([
                 'base_uri' => config('hebcal.base_uri')
             ]);
 
-            return new Hebcal($client, config('hebcal.hebcal_uri'));
+            return new HebcalApi($client, config('hebcal.hebcal_uri'));
         });
     }
 }
