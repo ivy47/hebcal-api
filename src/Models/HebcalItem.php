@@ -4,7 +4,7 @@ namespace Ivy47\HebcalApi\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Hebcal extends Model
+class HebcalItem extends Model
 {
     protected $table = null;
 

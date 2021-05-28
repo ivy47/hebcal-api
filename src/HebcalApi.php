@@ -5,7 +5,6 @@ namespace Ivy47\HebcalApi;
 
 
 use GuzzleHttp\Client;
-use Illuminate\Http\Client\Response;
 
 class HebcalApi
 {
@@ -28,13 +27,16 @@ class HebcalApi
 
 
     /**
-     * @param $params // https://www.hebcal.com/home/195/jewish-calendar-rest-api
-     * @return Response
+     * @param $params https://www.hebcal.com/home/195/jewish-calendar-rest-api
+     * @return HebcalCalendar
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getHolidays($params) {
-        return new Response($this->getClient()->get($this->hebcalUri, [
+    public function getHolidays($params): HebcalCalendar
+    {
+        $response = $this->getClient()->get($this->hebcalUri, [
             'query' => $params
-        ]));
+        ]);
+
+        return new HebcalCalendar($response->getBody());
     }
 }

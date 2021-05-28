@@ -28,6 +28,7 @@
     "guzzlehttp/guzzle": "^7.0.1",
     "illuminate/support": "^8.0",
     "illuminate/http": "^8.0",
-    "illuminate/database": "^8.0"
+    "illuminate/database": "^8.0",
+    "ext-json": "*"
   }
 }
