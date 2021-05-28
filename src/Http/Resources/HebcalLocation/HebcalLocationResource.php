@@ -20,7 +20,7 @@ class HebcalLocationResource extends JsonResource
             "country" => $this->country,
             "admin1" => $this->admin1,
             "geo" => $this->geo,
-            "geonameid = $this->geonameid"
+            "geonameid" => $this->geonameid
         ];
     }
 }
