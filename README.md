@@ -4,6 +4,7 @@ Simple API implementation of [Hebcal.com](https://www.hebcal.com/) Jewish holida
 This package implements:
 - Jewish calendar REST API
 - Hebrew Date Converter REST API
+- Shabbat times REST API
 
 ## Installation
 
@@ -71,6 +72,22 @@ $hebrewDateResponse = HebcalApi::convertDate($params);
 
 To see more details about params check [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
 
+### Shabbat times
+To get just this week’s Shabbat times and Torah Portion use `HebcalApi` method `getShabbatTimes($params)`
+```php
+use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
+
+$params = [
+            'geonameid' => '3448439',
+            'M' => 'on'
+            ...
+            ];
+
+$hebrewDateResponse = HebcalApi::getShabbatTimes($params);
+```
+
+To see more details about params check [Shabbat times REST API](https://www.hebcal.com/home/197/shabbat-times-rest-api)
+
 ## Important
 
 `cfg` param default value is '**json**' and can't be changed
@@ -104,6 +121,7 @@ $response = $hebcalCalendarResponse->getResponse();
 - [Hebcal](https://www.hebcal.com/)
 - [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
 - [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
+- [Shabbat times REST API](https://www.hebcal.com/home/197/shabbat-times-rest-api)
 - [Laravel Cache](https://laravel.com/docs/8.x/cache)
 - [Laravel API Resources](https://laravel.com/docs/8.x/eloquent-resources)
 
