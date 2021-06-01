@@ -39,7 +39,7 @@ class HebcalApi
         }
 
         if (isset($config['yahrzeit_uri'])) {
-            $this->zmanimUri = $config['yahrzeit_uri'];
+            $this->yahrzeitUri = $config['yahrzeit_uri'];
         }
     }
 
