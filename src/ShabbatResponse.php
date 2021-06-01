@@ -13,7 +13,7 @@ use Ivy47\HebcalApi\Models\HebcalLocation;
 class ShabbatResponse extends HebcalResponse
 {
     /**
-     * @var array|mixed
+     * @var string
      */
     private $title;
 
@@ -56,10 +56,11 @@ class ShabbatResponse extends HebcalResponse
         return new ShabbatResource($this);
     }
 
+
     /**
-     * @return array|mixed
+     * @return string
      */
-    public function getTitle(): array
+    public function getTitle(): string
     {
         return $this->title;
     }
