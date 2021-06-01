@@ -13,8 +13,8 @@ class HebcalCalendarResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->resource->title,
-            'date' => $this->resource->date ? $this->resource->date->timestamp : null,
+            'title' => $this->resource->getTitle(),
+            'date' => $this->resource->getDate(),
             'location' => new HebcalLocationResource($this->resource->location),
             'items' => HebcalItemResource::collection($this->resource->items)
         ];
