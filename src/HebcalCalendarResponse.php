@@ -4,7 +4,6 @@
 namespace Ivy47\HebcalApi;
 
 
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Ivy47\HebcalApi\Http\Resources\HebcalCalendar\HebcalCalendarResource;
 use Ivy47\HebcalApi\Models\HebcalItem;
@@ -17,8 +16,9 @@ class HebcalCalendarResponse extends HebcalResponse
      */
     private $title;
 
+
     /**
-     * @var Carbon
+     * @var mixed
      */
     private $date;
 
@@ -37,7 +37,7 @@ class HebcalCalendarResponse extends HebcalResponse
         parent::__construct($response);
 
         $this->title = $this->getDecoded('title');
-        $this->date = new Carbon($this->getDecoded('date'));
+        $this->date = $this->getDecoded('date');
         $this->location = new HebcalLocation($this->getDecoded('location'));
 
         $this->items = collect();
@@ -65,9 +65,9 @@ class HebcalCalendarResponse extends HebcalResponse
     }
 
     /**
-     * @return Carbon
+     * @return mixed
      */
-    public function getDate(): Carbon
+    public function getDate()
     {
         return $this->date;
     }
