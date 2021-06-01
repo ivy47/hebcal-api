@@ -13,7 +13,7 @@ use Ivy47\HebcalApi\Models\HebcalLocation;
 class HebcalCalendarResponse extends HebcalResponse
 {
     /**
-     * @var string
+     * @var mixed
      */
     private $title;
 
@@ -37,7 +37,7 @@ class HebcalCalendarResponse extends HebcalResponse
         parent::__construct($response);
 
         $this->title = $this->getDecoded('title');
-        $this->date = new Carbon($this->getDecoded('date'));
+        $this->date = $this->getDecoded('date');
         $this->location = new HebcalLocation($this->getDecoded('location'));
 
         $this->items = collect();
@@ -46,7 +46,6 @@ class HebcalCalendarResponse extends HebcalResponse
                 $this->items->add(new HebcalItem($item));
             }
         }
-
     }
 
     /**
@@ -58,9 +57,9 @@ class HebcalCalendarResponse extends HebcalResponse
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return $this->title;
     }

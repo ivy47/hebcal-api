@@ -4,7 +4,6 @@
 namespace Ivy47\HebcalApi;
 
 
-use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Ivy47\HebcalApi\Http\Resources\Shabbat\ShabbatResource;
 use Ivy47\HebcalApi\Models\HebcalItem;
@@ -13,12 +12,12 @@ use Ivy47\HebcalApi\Models\HebcalLocation;
 class ShabbatResponse extends HebcalResponse
 {
     /**
-     * @var string
+     * @var mixed
      */
     private $title;
 
     /**
-     * @var Carbon
+     * @var mixed
      */
     private $date;
 
@@ -37,7 +36,7 @@ class ShabbatResponse extends HebcalResponse
         parent::__construct($response);
 
         $this->title = $this->getDecoded('title');
-        $this->date = new Carbon($this->getDecoded('date'));
+        $this->date = $this->getDecoded('date');
         $this->location = new HebcalLocation($this->getDecoded('location'));
 
         $this->items = collect();
@@ -58,17 +57,17 @@ class ShabbatResponse extends HebcalResponse
 
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getTitle(): string
+    public function getTitle()
     {
         return $this->title;
     }
 
     /**
-     * @return Carbon
+     * @return mixed
      */
-    public function getDate(): Carbon
+    public function getDate()
     {
         return $this->date;
     }

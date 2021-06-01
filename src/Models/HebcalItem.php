@@ -9,7 +9,6 @@ class HebcalItem extends Model
     protected $table = null;
 
     protected $casts = [
-        'date' => 'datetime',
         'leyning' => 'array'
     ];
 
