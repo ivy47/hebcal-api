@@ -6,6 +6,7 @@ namespace Ivy47\HebcalApi\Http\Resources\Zmanim;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Ivy47\HebcalApi\Http\Resources\HebcalLocation\HebcalLocationResource;
+use Ivy47\HebcalApi\Http\Resources\ZmanimLocation\ZmanimlLocationResource;
 use Ivy47\HebcalApi\Http\Resources\ZmanimTimes\ZmanimTimesResource;
 
 class ZmanimResource extends JsonResource
@@ -14,7 +15,7 @@ class ZmanimResource extends JsonResource
     {
         return [
             'date' => $this->resource->getDate(),
-            'location' => new HebcalLocationResource($this->resource->getLocation()),
+            'location' => new ZmanimlLocationResource($this->resource->getLocation()),
             'times' => new ZmanimTimesResource($this->resource->getTimes())
         ];
     }
