@@ -62,6 +62,7 @@ class HebcalServiceProvider extends ServiceProvider
                 'hebcal_uri' => config('hebcal.hebcal_uri'),
                 'converter_uri' => config('hebcal.converter_uri'),
                 'shabbat_uri' => config('hebcal.shabbat_uri'),
+                'zmanim_uri' => config('hebcal.zmanim_uri'),
             ]);
         });
     }

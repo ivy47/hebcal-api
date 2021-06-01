@@ -12,6 +12,7 @@ return [
     'hebcal_uri' => '/hebcal/',
     'converter_uri' => '/converter/',
     'shabbat_uri' => '/shabbat/',
+    'zmanim_uri' => '/zmanim/',
 
 
     /*

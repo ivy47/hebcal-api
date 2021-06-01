@@ -12,6 +12,7 @@ class HebcalApi
     private $hebcalUri;
     private $converterUri;
     private $shabbatUri;
+    private $zmanimUri;
 
     public function __construct(
         $client,
@@ -30,6 +31,10 @@ class HebcalApi
 
         if (isset($config['shabbat_uri'])) {
             $this->shabbatUri = $config['shabbat_uri'];
+        }
+
+        if (isset($config['zmanim_uri'])) {
+            $this->zmanimUri = $config['zmanim_uri'];
         }
     }
 
@@ -93,5 +98,21 @@ class HebcalApi
         ]);
 
         return new ShabbatResponse($response);
+    }
+
+    /**
+     * @param $params
+     * @return ZmanimResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getZmanim($params): ZmanimResponse
+    {
+        $params = $this->prepareParams($params);
+
+        $response = $this->getClient()->get($this->zmanimUri, [
+            'query' => $params
+        ]);
+
+        return new ZmanimResponse($response);
     }
 }
