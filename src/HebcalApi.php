@@ -35,7 +35,7 @@ class HebcalApi
     }
 
     private function prepareParams($params) {
-        $params['json'] = 'json';
+        $params['cfg'] = 'json';
         return $params;
     }
 
