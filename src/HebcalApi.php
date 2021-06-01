@@ -10,11 +10,20 @@ class HebcalApi
 {
     private $client;
     private $hebcalUri;
+    private $converterUri;
 
-    public function __construct($client, $hebcalUri)
+    public function __construct(
+        $client,
+        $config
+    )
     {
         $this->client = $client;
-        $this->hebcalUri = $hebcalUri;
+        if (isset($config['hebcal_uri'])) {
+            $this->hebcalUri = $config['hebcal_uri'];
+        }
+        if (isset($config['converter_uri'])) {
+            $this->converterUri = $config['converter_uri'];
+        }
     }
 
     /**
@@ -28,15 +37,29 @@ class HebcalApi
 
     /**
      * @param $params https://www.hebcal.com/home/195/jewish-calendar-rest-api
-     * @return HebcalCalendar
+     * @return HebcalCalendarResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function getHolidays($params): HebcalCalendar
+    public function getHolidays($params): HebcalCalendarResponse
     {
         $response = $this->getClient()->get($this->hebcalUri, [
             'query' => $params
         ]);
 
-        return new HebcalCalendar($response->getBody());
+        return new HebcalCalendarResponse($response);
+    }
+
+    /**
+     * @param $params https://www.hebcal.com/home/219/hebrew-date-converter-rest-api
+     * @return HebrewDateResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function convertDate($params): HebrewDateResponse
+    {
+        $response = $this->getClient()->get($this->converterUri, [
+            'query' => $params
+        ]);
+
+        return new HebrewDateResponse($response);
     }
 }

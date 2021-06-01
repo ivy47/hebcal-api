@@ -10,6 +10,7 @@ return [
      * Jewish calendar REST API uri
      * */
     'hebcal_uri' => '/hebcal/',
+    'converter_uri' => '/converter/',
 
 
     /*
