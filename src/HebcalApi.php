@@ -13,6 +13,7 @@ class HebcalApi
     private $converterUri;
     private $shabbatUri;
     private $zmanimUri;
+    private $yahrzeitUri;
 
     public function __construct(
         $client,
@@ -35,6 +36,10 @@ class HebcalApi
 
         if (isset($config['zmanim_uri'])) {
             $this->zmanimUri = $config['zmanim_uri'];
+        }
+
+        if (isset($config['yahrzeit_uri'])) {
+            $this->zmanimUri = $config['yahrzeit_uri'];
         }
     }
 
@@ -101,7 +106,7 @@ class HebcalApi
     }
 
     /**
-     * @param $params
+     * @param $params https://www.hebcal.com/home/1663/zmanim-halachic-times-api
      * @return ZmanimResponse
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
@@ -114,5 +119,21 @@ class HebcalApi
         ]);
 
         return new ZmanimResponse($response);
+    }
+
+    /**
+     * @param $params https://www.hebcal.com/home/1705/yahrzeit-anniversary-api
+     * @return YahrzeitResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function generateYahrzeit($params)
+    {
+        $params = $this->prepareParams($params);
+
+        $response = $this->getClient()->post($this->yahrzeitUri, [
+            'form_params' => $params
+        ]);
+
+        return new YahrzeitResponse($response);
     }
 }

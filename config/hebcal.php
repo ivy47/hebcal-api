@@ -13,6 +13,7 @@ return [
     'converter_uri' => '/converter/',
     'shabbat_uri' => '/shabbat/',
     'zmanim_uri' => '/zmanim/',
+    'yahrzeit_uri' => '/yahrzeit/',
 
 
     /*
