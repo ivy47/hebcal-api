@@ -5,6 +5,7 @@ namespace Ivy47\HebcalApi;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Ivy47\HebcalApi\Http\Resources\Shabbat\ShabbatResource;
 use Ivy47\HebcalApi\Models\HebcalItem;
 use Ivy47\HebcalApi\Models\HebcalLocation;
@@ -27,7 +28,7 @@ class ShabbatResponse extends HebcalResponse
     private $location;
 
     /**
-     * @var \Illuminate\Support\Collection
+     * @var Collection
      */
     private $items;
 
@@ -53,5 +54,37 @@ class ShabbatResponse extends HebcalResponse
     public function getResource(): ShabbatResource
     {
         return new ShabbatResource($this);
+    }
+
+    /**
+     * @return array|mixed
+     */
+    public function getTitle(): array
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return Carbon
+     */
+    public function getDate(): Carbon
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return HebcalLocation
+     */
+    public function getLocation(): HebcalLocation
+    {
+        return $this->location;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getItems(): Collection
+    {
+        return $this->items;
     }
 }

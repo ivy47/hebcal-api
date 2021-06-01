@@ -5,6 +5,7 @@ namespace Ivy47\HebcalApi;
 
 
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 use Ivy47\HebcalApi\Http\Resources\HebcalCalendar\HebcalCalendarResource;
 use Ivy47\HebcalApi\Models\HebcalItem;
 use Ivy47\HebcalApi\Models\HebcalLocation;
@@ -27,7 +28,7 @@ class HebcalCalendarResponse extends HebcalResponse
     private $location;
 
     /**
-     * @var \Illuminate\Support\Collection
+     * @var Collection
      */
     private $items;
 
@@ -81,9 +82,9 @@ class HebcalCalendarResponse extends HebcalResponse
     }
 
     /**
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
-    public function getItems(): \Illuminate\Support\Collection
+    public function getItems(): Collection
     {
         return $this->items;
     }
