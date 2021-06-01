@@ -11,6 +11,7 @@ class HebcalApi
     private $client;
     private $hebcalUri;
     private $converterUri;
+    private $shabbatUri;
 
     public function __construct(
         $client,
@@ -18,11 +19,17 @@ class HebcalApi
     )
     {
         $this->client = $client;
+
         if (isset($config['hebcal_uri'])) {
             $this->hebcalUri = $config['hebcal_uri'];
         }
+
         if (isset($config['converter_uri'])) {
             $this->converterUri = $config['converter_uri'];
+        }
+
+        if (isset($config['shabbat_uri'])) {
+            $this->shabbatUri = $config['shabbat_uri'];
         }
     }
 
@@ -70,5 +77,21 @@ class HebcalApi
         ]);
 
         return new HebrewDateResponse($response);
+    }
+
+    /**
+     * @param $params https://www.hebcal.com/home/197/shabbat-times-rest-api
+     * @return ShabbatResponse
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getShabbatTimes($params): ShabbatResponse
+    {
+        $params = $this->prepareParams($params);
+
+        $response = $this->getClient()->get($this->shabbatUri, [
+            'query' => $params
+        ]);
+
+        return new ShabbatResponse($response);
     }
 }

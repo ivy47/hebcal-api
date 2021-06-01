@@ -7,10 +7,11 @@ return [
     'base_uri' => 'https://www.hebcal.com',
 
     /*
-     * Jewish calendar REST API uri
+     * Jewish calendar REST API uri's
      * */
     'hebcal_uri' => '/hebcal/',
     'converter_uri' => '/converter/',
+    'shabbat_uri' => '/shabbat/',
 
 
     /*

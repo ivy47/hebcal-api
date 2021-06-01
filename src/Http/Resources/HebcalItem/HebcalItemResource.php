@@ -12,7 +12,7 @@ class HebcalItemResource extends JsonResource
     {
         return [
             'title' => $this->title,
-            'date' => $this->date ? $this->date->timestamp : null,
+            'date' => $this->date,
             'category' => $this->category,
             'title_orig' => $this->title_orig,
             'hebrew' => $this->hebrew,
