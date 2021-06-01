@@ -49,7 +49,7 @@ abstract class HebcalResponse implements HasResource
     public function getDecoded($key = null, $default = null)
     {
         if (! $this->decoded) {
-            $this->decoded = json_decode($this->body(), true);
+            $this->decoded = json_decode($this->getBody(), true);
         }
 
         if (is_null($key)) {
