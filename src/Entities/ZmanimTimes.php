@@ -1,13 +1,10 @@
 <?php
 
-namespace Ivy47\HebcalApi\Models;
+namespace Ivy47\HebcalApi\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 
-class ZmanimTimes extends Model
+class ZmanimTimes extends HebcalEntity
 {
-    protected $table = null;
-
     protected $fillable = [
         "chatzotNight",
         "alotHaShachar",

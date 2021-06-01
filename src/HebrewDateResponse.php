@@ -5,7 +5,7 @@ namespace Ivy47\HebcalApi;
 
 
 use Ivy47\HebcalApi\Http\Resources\HebrewDate\HebrewDateResource;
-use Ivy47\HebcalApi\Models\HebrewDate;
+use Ivy47\HebcalApi\Entities\HebrewDate;
 
 class HebrewDateResponse extends HebcalResponse
 {

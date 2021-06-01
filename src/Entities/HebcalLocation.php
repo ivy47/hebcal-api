@@ -1,13 +1,10 @@
 <?php
 
-namespace Ivy47\HebcalApi\Models;
+namespace Ivy47\HebcalApi\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 
-class HebcalLocation extends Model
+class HebcalLocation extends HebcalEntity
 {
-    protected $table = null;
-
     protected $fillable = [
         "title",
         "city",

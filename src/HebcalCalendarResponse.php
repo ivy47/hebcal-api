@@ -6,8 +6,8 @@ namespace Ivy47\HebcalApi;
 
 use Illuminate\Support\Collection;
 use Ivy47\HebcalApi\Http\Resources\HebcalCalendar\HebcalCalendarResource;
-use Ivy47\HebcalApi\Models\HebcalItem;
-use Ivy47\HebcalApi\Models\HebcalLocation;
+use Ivy47\HebcalApi\Entities\HebcalItem;
+use Ivy47\HebcalApi\Entities\HebcalLocation;
 
 class HebcalCalendarResponse extends HebcalResponse
 {
