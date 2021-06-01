@@ -22,6 +22,7 @@ Published Config File Contents
 'base_uri' => 'https://www.hebcal.com',
 'hebcal_uri' => '/hebcal/',
 'converter_uri' => '/converter/',
+'shabbat_uri' => '/shabbat/',
 
 'use_cache' => false,
 'cache_store' => 'file'
