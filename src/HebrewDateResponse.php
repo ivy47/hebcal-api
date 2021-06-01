@@ -89,6 +89,10 @@ class HebrewDateResponse extends HebcalResponse
         return $this->hebrewDate->hd;
     }
 
+    public function getAfterSunset() {
+        return $this->hebrewDate->afterSunset;
+    }
+
     /**
      * @return mixed
      */

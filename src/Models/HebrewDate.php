@@ -13,14 +13,15 @@ class HebrewDate extends Model
     ];
 
     protected $fillable = [
-        "gy",
-        "gm",
-        "gd",
-        "hy",
-        "hm",
-        "hd",
-        "hebrew",
-        "events",
+        'gy',
+        'gm',
+        'gd',
+        'hy',
+        'hm',
+        'hd',
+        'afterSunset',
+        'hebrew',
+        'events',
     ];
 
 }
