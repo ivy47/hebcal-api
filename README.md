@@ -5,6 +5,7 @@ This package implements:
 - Jewish calendar REST API
 - Hebrew Date Converter REST API
 - Shabbat times REST API
+- Zmanim (halachic times) API
 
 ## Installation
 
@@ -84,10 +85,26 @@ $params = [
             ...
             ];
 
-$hebrewDateResponse = HebcalApi::getShabbatTimes($params);
+$shabbatResponse = HebcalApi::getShabbatTimes($params);
 ```
 
 To see more details about params check [Shabbat times REST API](https://www.hebcal.com/home/197/shabbat-times-rest-api)
+
+### Zmanim (halachic times)
+To calculate zmanim (halachic times) for a given location use `HebcalApi` method `getZmanim($params)`
+```php
+use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
+
+$params = [
+            'geonameid' => '3448439',
+            'date' => '2021-03-23'
+            ...
+            ];
+
+$zmanimResponse = HebcalApi::getZmanim($params);
+```
+
+To see more details about params check [Zmanim (halachic times) API](https://www.hebcal.com/home/1663/zmanim-halachic-times-api)
 
 ## Important
 
@@ -123,6 +140,7 @@ $response = $hebcalCalendarResponse->getResponse();
 - [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
 - [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
 - [Shabbat times REST API](https://www.hebcal.com/home/197/shabbat-times-rest-api)
+- [Zmanim (halachic times) API](https://www.hebcal.com/home/1663/zmanim-halachic-times-api)
 - [Laravel Cache](https://laravel.com/docs/8.x/cache)
 - [Laravel API Resources](https://laravel.com/docs/8.x/eloquent-resources)
 

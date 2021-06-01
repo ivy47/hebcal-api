@@ -3,7 +3,7 @@
 namespace Ivy47\HebcalApi\Entities;
 
 
-class ZmanimTimes extends HebcalEntity
+class ZmanimLocation extends HebcalEntity
 {
 
 }

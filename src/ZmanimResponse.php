@@ -4,11 +4,8 @@
 namespace Ivy47\HebcalApi;
 
 
-use Illuminate\Support\Collection;
-use Ivy47\HebcalApi\Http\Resources\Shabbat\ShabbatResource;
+use Ivy47\HebcalApi\Entities\ZmanimLocation;
 use Ivy47\HebcalApi\Http\Resources\Zmanim\ZmanimResource;
-use Ivy47\HebcalApi\Entities\HebcalItem;
-use Ivy47\HebcalApi\Entities\HebcalLocation;
 use Ivy47\HebcalApi\Entities\ZmanimTimes;
 
 class ZmanimResponse extends HebcalResponse
@@ -19,7 +16,7 @@ class ZmanimResponse extends HebcalResponse
     private $date;
 
     /**
-     * @var HebcalLocation
+     * @var ZmanimLocation
      */
     private $location;
 
@@ -33,7 +30,7 @@ class ZmanimResponse extends HebcalResponse
         parent::__construct($response);
 
         $this->date = $this->getDecoded('date');
-        $this->location = new HebcalLocation($this->getDecoded('location'));
+        $this->location = new ZmanimLocation($this->getDecoded('location'));
         $this->times = new ZmanimTimes($this->getDecoded('times'));
     }
 
@@ -54,9 +51,9 @@ class ZmanimResponse extends HebcalResponse
     }
 
     /**
-     * @return HebcalLocation
+     * @return ZmanimLocation
      */
-    public function getLocation(): HebcalLocation
+    public function getLocation(): ZmanimLocation
     {
         return $this->location;
     }
