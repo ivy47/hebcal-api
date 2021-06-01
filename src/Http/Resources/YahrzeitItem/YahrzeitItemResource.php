@@ -13,8 +13,11 @@ class YahrzeitItemResource extends JsonResource
         $data = [
             'title' => $this->title,
             'date' => $this->date,
-            'memo' => $this->memo,
         ];
+
+        if (isset($this->memo)) {
+            $data['memo'] = $this->memo;
+        }
 
         return $data;
     }

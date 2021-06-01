@@ -6,6 +6,7 @@ This package implements:
 - Hebrew Date Converter REST API
 - Shabbat times REST API
 - Zmanim (halachic times) API
+- Yahrzeit + Anniversary API
 
 ## Installation
 
@@ -106,6 +107,30 @@ $zmanimResponse = HebcalApi::getZmanim($params);
 
 To see more details about params check [Zmanim (halachic times) API](https://www.hebcal.com/home/1663/zmanim-halachic-times-api)
 
+### Yahrzeit + Anniversary
+To generate a list of Yahrzeit dates, Hebrew Birthdays, and Hebrew Anniversaries use `HebcalApi` method `generateYahrzeit($params)`
+```php
+use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
+
+$params = [
+            'v' => 'yahrzeit',
+            'years' => 3,
+            'hebdate' => 'on',
+            'yizkor' => 'on',
+            'y1' => 1983,
+            'm1' => 4,
+            'd1' => 15,
+            's1' => 'on',
+            't1' => 'Yahrzeit',
+            'n1' => 'Example 1'
+            ...
+            ];
+
+$yahrzeitResponse = HebcalApi::generateYahrzeit($params);
+```
+
+To see more details about params check [Yahrzeit + Anniversary API](https://www.hebcal.com/home/1705/yahrzeit-anniversary-api)
+
 ## Important
 
 `cfg` param default value is '**json**' and can't be changed
@@ -141,6 +166,7 @@ $response = $hebcalCalendarResponse->getResponse();
 - [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
 - [Shabbat times REST API](https://www.hebcal.com/home/197/shabbat-times-rest-api)
 - [Zmanim (halachic times) API](https://www.hebcal.com/home/1663/zmanim-halachic-times-api)
+- [Yahrzeit + Anniversary API](https://www.hebcal.com/home/1705/yahrzeit-anniversary-api)
 - [Laravel Cache](https://laravel.com/docs/8.x/cache)
 - [Laravel API Resources](https://laravel.com/docs/8.x/eloquent-resources)
 
