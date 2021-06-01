@@ -10,15 +10,26 @@ class HebcalItemResource extends JsonResource
 {
     public function toArray($request)
     {
-        return [
+        $data = [
             'title' => $this->title,
             'date' => $this->date,
             'category' => $this->category,
             'title_orig' => $this->title_orig,
             'hebrew' => $this->hebrew,
-            'leyning' => $this->leyning,
-            'memo' => $this->memo,
-            'link' => $this->link
         ];
+
+        if (isset($this->leyning)) {
+            $data['leyning'] = $this->leyning;
+        }
+
+        if (isset($this->memo)) {
+            $data['memo'] = $this->memo;
+        }
+
+        if (isset($this->link)) {
+            $data['link'] = $this->link;
+        }
+
+        return $data;
     }
 }
