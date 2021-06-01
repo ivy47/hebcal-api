@@ -20,7 +20,11 @@ class HebcalEntity implements \ArrayAccess
      * @return mixed
      */
     public function __get($key) {
-        return $this->container[$key];
+        if (isset($this->container[$key])) {
+            return $this->container[$key];
+        }
+
+        return null;
     }
 
     /**
