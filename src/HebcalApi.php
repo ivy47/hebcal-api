@@ -34,6 +34,11 @@ class HebcalApi
         return $this->client;
     }
 
+    private function prepareParams($params) {
+        $params['json'] = 'json';
+        return $params;
+    }
+
 
     /**
      * @param $params https://www.hebcal.com/home/195/jewish-calendar-rest-api
@@ -42,6 +47,8 @@ class HebcalApi
      */
     public function getHolidays($params): HebcalCalendarResponse
     {
+        $params = $this->prepareParams($params);
+
         $response = $this->getClient()->get($this->hebcalUri, [
             'query' => $params
         ]);
@@ -56,6 +63,8 @@ class HebcalApi
      */
     public function convertDate($params): HebrewDateResponse
     {
+        $params = $this->prepareParams($params);
+
         $response = $this->getClient()->get($this->converterUri, [
             'query' => $params
         ]);

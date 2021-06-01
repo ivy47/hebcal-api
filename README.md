@@ -3,6 +3,7 @@ Simple API implementation of [Hebcal.com](https://www.hebcal.com/) Jewish holida
 
 This package implements:
 - Jewish calendar REST API
+- Hebrew Date Converter REST API
 
 ## Installation
 
@@ -19,6 +20,7 @@ Published Config File Contents
 ```
 'base_uri' => 'https://www.hebcal.com',
 'hebcal_uri' => '/hebcal/',
+'converter_uri' => '/converter/',
 
 'use_cache' => false,
 'cache_store' => 'file'
@@ -28,14 +30,13 @@ To enable hebcal api requests cache - change `use_cache` value to true. Also, yo
 
 ## Usage
 
-### Use HebcalApi Facade
-To get the holidays use the `HebcalApi` method `getHolidays($params)`
+### Jewish calendar
+Use HebcalApi Facade. To get the holidays use the `HebcalApi` method `getHolidays($params)`
 ```php
 use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
 
 $params = [
             'v' => 1,
-            'cfg' => 'json',
             'maj' => 'on',
             'min' => 'on',
             'mod' => 'on',
@@ -47,31 +48,67 @@ $params = [
             ...
             ];
 
-$hebcalCalendar = HebcalApi::getHolidays($params);
+$hebcalCalendarResponse = HebcalApi::getHolidays($params);
 ```
 
-To see more details about params check Hebcal.com [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
+To see more details about params check [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
+
+### Hebrew Date Converter
+To convert date use `HebcalApi` method `convertDate($params)`
+```php
+use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
+
+$params = [
+            'v' => 1,
+            'maj' => 'on',
+            'min' => 'on',
+            'mod' => 'on',
+            'nx' => 'on',
+            'month' => 'x',
+            'ss' => 'on',
+            'mf' => 'on',
+            'c' => 'on',
+            ...
+            ];
+
+$hebcalCalendarResponse = HebcalApi::getHolidays($params);
+```
+
+To see more details about params check [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
+
+## Important
+
+`cfg` param default value is '**json**' and can't be changed
 
 ## API Resources
 
 This package provides Laravel API Resources of Hebcal ready to use 
 
-To get api resource of HebcalCalendar use `getResource()` method
+To get the api resource use `getResource()` method, on any HebcalResponse
 
 ```php
+// HebcalCalendarResponse example
+
 /** @var \Ivy47\HebcalApi\Http\Resources\HebcalCalendar\HebcalCalendarResource $hebcalCalendarResource */
-$hebcalCalendarResource = $hebcalCalendar->getResource();
+$hebcalCalendarResource = $hebcalCalendarResponse->getResource();
 ```
 
-But if you need raw (json) or decoded response data use:
+But if you need raw (body) or decoded response data use:
 ```php
-$json = $hebcalCalendar->getJson();
-$decoded = $hebcalCalendar->getDecoded();
+$body = $hebcalCalendarResponse->getBody();
+$decoded = $hebcalCalendarResponse->getDecoded();
+```
+
+or use the original response:
+```php
+$response = $hebcalCalendarResponse->getResponse();
 ```
 
 ## Useful Links
 
 - [Hebcal](https://www.hebcal.com/)
+- [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
+- [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
 - [Laravel Cache](https://laravel.com/docs/8.x/cache)
 - [Laravel API Resources](https://laravel.com/docs/8.x/eloquent-resources)
 

@@ -34,7 +34,7 @@ abstract class HebcalResponse implements HasResource
      *
      * @return string
      */
-    public function body()
+    public function getBody()
     {
         return (string)$this->response->getBody();
     }
