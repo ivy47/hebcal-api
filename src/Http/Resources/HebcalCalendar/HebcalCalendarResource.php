@@ -15,8 +15,8 @@ class HebcalCalendarResource extends JsonResource
         return [
             'title' => $this->resource->getTitle(),
             'date' => $this->resource->getDate(),
-            'location' => new HebcalLocationResource($this->resource->location),
-            'items' => HebcalItemResource::collection($this->resource->items)
+            'location' => new HebcalLocationResource($this->resource->getLocation()),
+            'items' => HebcalItemResource::collection($this->resource->getItems())
         ];
     }
 }
