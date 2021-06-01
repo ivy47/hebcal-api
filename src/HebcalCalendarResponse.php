@@ -37,7 +37,7 @@ class HebcalCalendarResponse extends HebcalResponse
         parent::__construct($response);
 
         $this->title = $this->getDecoded('title');
-        $this->date = $this->getDecoded('date');
+        $this->date = new Carbon($this->getDecoded('date'));
         $this->location = new HebcalLocation($this->getDecoded('location'));
 
         $this->items = collect();
