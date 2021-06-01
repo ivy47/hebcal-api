@@ -14,22 +14,22 @@ class HebcalCalendarResponse extends HebcalResponse
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var Carbon
      */
-    public $date;
+    private $date;
 
     /**
      * @var HebcalLocation
      */
-    public $location;
+    private $location;
 
     /**
      * @var \Illuminate\Support\Collection
      */
-    public $items;
+    private $items;
 
 
     public function __construct($response) {
@@ -54,5 +54,37 @@ class HebcalCalendarResponse extends HebcalResponse
     public function getResource(): HebcalCalendarResource
     {
         return new HebcalCalendarResource($this);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return Carbon
+     */
+    public function getDate(): Carbon
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return HebcalLocation
+     */
+    public function getLocation(): HebcalLocation
+    {
+        return $this->location;
+    }
+
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function getItems(): \Illuminate\Support\Collection
+    {
+        return $this->items;
     }
 }
