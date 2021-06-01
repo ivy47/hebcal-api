@@ -15,7 +15,7 @@ class ZmanimResource extends JsonResource
         return [
             'date' => $this->resource->getDate(),
             'location' => new HebcalLocationResource($this->resource->getLocation()),
-            'times' => ZmanimTimesResource::collection($this->resource->getTimes())
+            'times' => new ZmanimTimesResource($this->resource->getTimes())
         ];
     }
 }
