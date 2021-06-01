@@ -59,19 +59,14 @@ To convert date use `HebcalApi` method `convertDate($params)`
 use Ivy47\HebcalApi\Facades\HebcalApiFacade as HebcalApi;
 
 $params = [
-            'v' => 1,
-            'maj' => 'on',
-            'min' => 'on',
-            'mod' => 'on',
-            'nx' => 'on',
-            'month' => 'x',
-            'ss' => 'on',
-            'mf' => 'on',
-            'c' => 'on',
+            'gy' => 2011,
+            'gm' => 6,
+            'gd' => 2,
+            'g2h' => 1,
             ...
             ];
 
-$hebcalCalendarResponse = HebcalApi::getHolidays($params);
+$hebrewDateResponse = HebcalApi::convertDate($params);
 ```
 
 To see more details about params check [Hebrew Date Converter REST API](https://www.hebcal.com/home/219/hebrew-date-converter-rest-api)
