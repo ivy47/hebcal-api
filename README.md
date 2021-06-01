@@ -21,13 +21,31 @@ The `vendor:publish` commmand will publish a file named hebcal.php within your l
 
 Published Config File Contents
 ```
-'base_uri' => 'https://www.hebcal.com',
-'hebcal_uri' => '/hebcal/',
-'converter_uri' => '/converter/',
-'shabbat_uri' => '/shabbat/',
+/*
+     * Base Hebcal REST API uri
+     * */
+    'base_uri' => 'https://www.hebcal.com',
 
-'use_cache' => false,
-'cache_store' => 'file'
+    /*
+     * Jewish calendar REST API uri's
+     * */
+    'hebcal_uri' => '/hebcal/',
+    'converter_uri' => '/converter/',
+    'shabbat_uri' => '/shabbat/',
+    'zmanim_uri' => '/zmanim/',
+    'yahrzeit_uri' => '/yahrzeit/',
+
+
+    /*
+     * Use laravel cache
+     * */
+    'use_cache' => false,
+
+    /*
+     * Cache store driver
+     * Check cache configuration file at config/cache.php to see posible options
+     * */
+    'cache_store' => 'file'
 ```
 
 To enable hebcal api requests cache - change `use_cache` value to true. Also, you can set the cache store driver. For more details check Laravel [driver-prerequisites](https://laravel.com/docs/8.x/cache#driver-prerequisites) documentation 
