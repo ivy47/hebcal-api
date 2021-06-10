@@ -75,6 +75,18 @@ $hebcalCalendarResponse = HebcalApi::getHolidays($params);
 
 To see more details about params check [Jewish calendar REST API documentation](https://www.hebcal.com/home/195/jewish-calendar-rest-api)
 
+To get hebcal items use `$hebcalCalendarResponse->getItems()` method
+
+If you need to get the holidays only for specific category, use categories filter & `HebcalHelper` category constants:
+```php
+use Ivy47\HebcalApi\Helpers\HebcalHelper;
+
+$hebcalCalendarResponseItems = $hebcalCalendarResponse->getItems([
+            HebcalHelper::HEBCAL_CATEGORY_CANDLES,
+            HebcalHelper::HEBCAL_CATEGORY_HOLIDAY,
+        ]);
+```
+
 ### Hebrew Date Converter
 To convert date use `HebcalApi` method `convertDate($params)`
 ```php
