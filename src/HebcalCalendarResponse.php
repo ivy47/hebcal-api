@@ -83,8 +83,12 @@ class HebcalCalendarResponse extends HebcalResponse
     /**
      * @return Collection
      */
-    public function getItems(): Collection
+    public function getItems(array $categories = []): Collection
     {
-        return $this->items;
+        if (empty($categories)) {
+            return $this->items;
+        }
+
+        return $this->items->whereIn('category', $categories);
     }
 }
